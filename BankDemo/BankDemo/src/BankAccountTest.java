@@ -1,5 +1,7 @@
 import static org.junit.Assert.assertEquals;
 
+import java.beans.Transient;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +14,7 @@ public class BankAccountTest {
     @BeforeEach
     void setUp() {
         //arrange
-        myAccount = new BankAccount("Josh", 100.0);
+        myAccount = new BankAccount("Me", 100.0);
         yourAccount = new BankAccount("You", 1000.0);
     }
 
@@ -24,7 +26,10 @@ public class BankAccountTest {
 
     @Test
     void testCloseAccount() {
-
+        //act
+        myAccount.closeAccount();
+        //assert
+        assertEquals(false, myAccount.isActive());
     }
 
     @Test
@@ -39,22 +44,34 @@ public class BankAccountTest {
 
     @Test
     void testGetBalance() {
-
+        //assert
+        double expectedBehavior = 100.0;
+        double actualBehavior = myAccount.getBalance();
+        assertEquals(expectedBehavior, actualBehavior, 0.001);
     }
 
     @Test
     void testGetOwner() {
-
+        //assert
+        String expectedBehavior = "Me";
+        String actualBehavior = myAccount.getOwner();
+        assertEquals(expectedBehavior, actualBehavior);
     }
 
     @Test
     void testIsActive() {
-
+        //assert
+        assertEquals(true, myAccount.isActive());
     }
 
     @Test
     void testTransferTo() {
-
+        //act
+        yourAccount.transferTo(myAccount, 20.0);
+        //assert
+        double expectedBehavior = 120.0;
+        double actualBehavior = myAccount.getBalance();
+        assertEquals(expectedBehavior, actualBehavior, 0.001);
     }
 
     @Test
@@ -65,5 +82,12 @@ public class BankAccountTest {
         double expectedBehavior = 90.0;
         double actualBehavior = myAccount.getBalance();
         assertEquals(expectedBehavior, actualBehavior, 0.001);
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {-1000.0, -100.0, 0.0})
+    void testWithdrawIllegalException(double amount) {
+        //act and assert
+        assertThrows(IllegalArgumentException.class, () -> myAccount.withdraw(amount));
     }
 }
