@@ -1,10 +1,11 @@
-import static org.junit.Assert.assertEquals;
-
-import java.beans.Transient;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class BankAccountTest {
 
@@ -27,6 +28,7 @@ public class BankAccountTest {
     @Test
     void testCloseAccount() {
         //act
+        myAccount.withdraw(100.0);
         myAccount.closeAccount();
         //assert
         assertEquals(false, myAccount.isActive());
