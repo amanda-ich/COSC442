@@ -7,22 +7,37 @@ public class PropertyCell extends Cell {
 	private int rent;
 	private int sellPrice;
 
+	/** 
+	 * @return String
+	 */
 	public String getColorGroup() {
 		return colorGroup;
 	}
 
+	/** 
+	 * @return int
+	 */
 	public int getHousePrice() {
 		return housePrice;
 	}
 
+	/** 
+	 * @return int
+	 */
 	public int getNumHouses() {
 		return numHouses;
 	}
     
-    public int getPrice() {
+    /** 
+	 * @return int
+	 */
+	public int getPrice() {
 		return sellPrice;
 	}
 
+	/** 
+	 * @return int
+	 */
 	public int getRent() {
 		int rentToCharge = rent;
 		String [] monopolies = theOwner.getMonopolies();
@@ -33,6 +48,11 @@ public class PropertyCell extends Cell {
 		return rentToCharge;
 	}
 
+	/** 
+	 * @param rentToCharge
+	 * @param monopolies
+	 * @return int
+	 */
 	private int calculateMonopoliesRent(int rentToCharge, String[] monopolies) {
 		for(int i = 0; i < monopolies.length; i++) {
 			if(monopolies[i].equals(colorGroup)) {
@@ -52,22 +72,37 @@ public class PropertyCell extends Cell {
 		}
 	}
 
+	/** 
+	 * @param colorGroup
+	 */
 	public void setColorGroup(String colorGroup) {
 		this.colorGroup = colorGroup;
 	}
 
+	/** 
+	 * @param housePrice
+	 */
 	public void setHousePrice(int housePrice) {
 		this.housePrice = housePrice;
 	}
 
+	/** 
+	 * @param numHouses
+	 */
 	public void setNumHouses(int numHouses) {
 		this.numHouses = numHouses;
 	}
 
+	/** 
+	 * @param sellPrice
+	 */
 	public void setPrice(int sellPrice) {
 		this.sellPrice = sellPrice;
 	}
 
+	/** 
+	 * @param rent
+	 */
 	public void setRent(int rent) {
 		this.rent = rent;
 	}
