@@ -43,28 +43,35 @@ public class WorldBuilder {
 			for (int x = 0; x < width; x++) {
 				for (int y = 0; y < height; y++) {
 					for (int z = 0; z < depth; z++) {
-						int floors = 0;
-						int rocks = 0;
-	
-						for (int ox = -1; ox < 2; ox++) {
-							for (int oy = -1; oy < 2; oy++) {
-								if (x + ox < 0 || x + ox >= width || y + oy < 0
-										|| y + oy >= height)
-									continue;
-	
-								if (tiles[x + ox][y + oy][z] == Tile.FLOOR)
-									floors++;
-								else
-									rocks++;
-							}
-						}
-						tiles2[x][y][z] = floors >= rocks ? Tile.FLOOR : Tile.WALL;
+						getRocks(tiles2, x, y, z);
 					}
 				}
 			}
 			tiles = tiles2;
 		}
 		return this;
+	}
+
+	// refactored getRocks method to be outside smooth, making logic more readable
+	private void getRocks(Tile[][][] tiles2, int x, int y, int z) {
+		int floors = 0;
+		int rocks = 0;
+
+		for (int ox = -1; ox < 2; ox++) {
+			for (int oy = -1; oy < 2; oy++) {
+					int intx = x + ox;
+					int inty = y + oy;
+				if (intx < 0 || intx >= width || inty < 0
+						|| inty >= height)
+					continue;
+
+				if (tiles[intx][inty][z] == Tile.FLOOR)
+					floors++;
+				else
+					rocks++;
+			}
+		}
+		tiles2[x][y][z] = floors >= rocks ? Tile.FLOOR : Tile.WALL;
 	}
 	
 	private WorldBuilder createRegions(){

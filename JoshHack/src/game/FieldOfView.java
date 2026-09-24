@@ -34,10 +34,8 @@ public class FieldOfView {
 		
 		for (int x = -r; x < r; x++){
 			for (int y = -r; y < r; y++){
-				if (x*x + y*y > r*r)
-					continue;
-				
-				if (wx + x < 0 || wx + x >= world.width() || wy + y < 0 || wy + y >= world.height())
+				// reduced if statements from 2 to 1 since both result in the same behavior
+				if ((x*x + y*y > r*r) || (wx + x < 0 || wx + x >= world.width() || wy + y < 0 || wy + y >= world.height()))
 					continue;
 				
 				for (Point p : new Line(wx, wy, wx + x, wy + y)){

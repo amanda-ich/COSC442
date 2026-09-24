@@ -62,11 +62,9 @@ public class CreatureAi {
 		int my = (int)(Math.random() * 3) - 1;
 		
 		Creature other = creature.creature(creature.x + mx, creature.y + my, creature.z);
-		
-		if (other != null && other.name().equals(creature.name()) 
-				|| !creature.tile(creature.x+mx, creature.y+my, creature.z).isGround())
-			return;
-		else
+		// refactored if statement to remove redundant condition
+		if (!(other != null && other.name().equals(creature.name()) 
+				|| !creature.tile(creature.x+mx, creature.y+my, creature.z).isGround()))
 			creature.moveBy(mx, my, 0);
 	}
 
