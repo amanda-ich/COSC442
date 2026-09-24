@@ -29,7 +29,7 @@ public class TradeDeal {
     /** 
      * @return String
      */
-    // Task 11 - redefined makeMessage method
+    // Task 12 - redefined makeMessage method
     public String makeMessage() {
         return GameMaster.instance().getCurrentPlayer() + 
         	" wishes to purchase " +

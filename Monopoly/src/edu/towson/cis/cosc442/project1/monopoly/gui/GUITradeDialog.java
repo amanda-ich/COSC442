@@ -99,10 +99,16 @@ public class GUITradeDialog extends JDialog implements TradeDialog {
         }
     }
 
+    /** 
+     * @return TradeDeal
+     */
     public TradeDeal getTradeDeal() {
         return deal;
     }
 
+    /** 
+     * @param player
+     */
     private void updatePropertiesCombo(Player player) {
         cboProperties.removeAllItems();
         Cell[] cells = player.getAllProperties();

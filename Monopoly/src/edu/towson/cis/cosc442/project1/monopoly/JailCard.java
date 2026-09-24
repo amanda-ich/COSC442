@@ -14,10 +14,16 @@ public class JailCard extends Card {
 		GameMaster.instance().sendToJail(currentPlayer);
     }
 
+    /** 
+     * @return int
+     */
     public int getCardType() {
         return type;
     }
 
+    /** 
+     * @return String
+     */
     public String getLabel() {
         return "Go to Jail immediately without collecting" +
         		" $200 when passing the GO cell";

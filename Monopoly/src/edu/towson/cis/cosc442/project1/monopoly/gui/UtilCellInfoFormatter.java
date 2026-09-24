@@ -6,7 +6,11 @@ import edu.towson.cis.cosc442.project1.monopoly.UtilityCell;
 
 public class UtilCellInfoFormatter implements CellInfoFormatter {
 
-	public String format(Cell cell) {
+	/** 
+         * @param cell
+         * @return String
+         */
+        public String format(Cell cell) {
         UtilityCell c = (UtilityCell)cell;
         StringBuffer buf = new StringBuffer();
         Player owner = cell.getTheOwner();

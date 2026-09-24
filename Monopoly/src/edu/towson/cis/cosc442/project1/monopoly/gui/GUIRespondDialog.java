@@ -53,10 +53,16 @@ public class GUIRespondDialog extends JDialog implements RespondDialog {
         pack();
     }
 
+    /** 
+     * @return boolean
+     */
     public boolean getResponse() {
         return response;
     }
     
+    /** 
+     * @param deal
+     */
     public void setDeal(TradeDeal deal) {
         txtMessage.setText(deal.makeMessage());
     }

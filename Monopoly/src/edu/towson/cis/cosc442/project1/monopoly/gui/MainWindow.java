@@ -54,6 +54,10 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 		});
 	}
 	
+	/** 
+	 * @param panel
+	 * @param cells
+	 */
 	private void addCells(JPanel panel, List<?> cells) {
 		for(int x=0; x<cells.size(); x++) {
 			GUICell cell = new GUICell((Cell)cells.get(x));
@@ -76,19 +80,31 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 		}
 	}
 
+	/** 
+	 * @param playerIndex
+	 */
 	public void enableEndTurnBtn(int playerIndex) {
 		playerPanels[playerIndex].setEndTurnEnabled(true);
 	}
 	
+	/** 
+	 * @param playerIndex
+	 */
 	public void enablePlayerTurn(int playerIndex) {
 		playerPanels[playerIndex].setRollDiceEnabled(true);
 		
 	}
 
+	/** 
+	 * @param playerIndex
+	 */
 	public void enablePurchaseBtn(int playerIndex) {
 		playerPanels[playerIndex].setPurchasePropertyEnabled(true);
 	}
 
+	/** 
+	 * @return int[]
+	 */
 	@SuppressWarnings("deprecation")
 	public int[] getDiceRoll() {
 		TestDiceRollDialog dialog = new TestDiceRollDialog(this);
@@ -96,25 +112,43 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 		return dialog.getDiceRoll();
 	}
 
-    public boolean isDrawCardButtonEnabled() {
+    /** 
+	 * @return boolean
+	 */
+	public boolean isDrawCardButtonEnabled() {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         return playerPanels[currentPlayerIndex].isDrawCardButtonEnabled();
     }
 
-    public boolean isEndTurnButtonEnabled() {
+    /** 
+	 * @return boolean
+	 */
+	public boolean isEndTurnButtonEnabled() {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         return playerPanels[currentPlayerIndex].isEndTurnButtonEnabled();
     }
 
+	/** 
+	 * @return boolean
+	 */
 	public boolean isGetOutOfJailButtonEnabled() {
 		int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
 		return playerPanels[currentPlayerIndex].isGetOutOfJailButtonEnabled();
 	}
 
-    public boolean isTradeButtonEnabled(int i) {
+    /** 
+	 * @param i
+	 * @return boolean
+	 */
+	public boolean isTradeButtonEnabled(int i) {
         return playerPanels[i].isTradeButtonEnabled();
     }
 	
+	/** 
+	 * @param index
+	 * @param from
+	 * @param to
+	 */
 	public void movePlayer(int index, int from, int to) {
 		GUICell fromCell = queryCell(from);
 		GUICell toCell = queryCell(to);
@@ -122,7 +156,11 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 		toCell.addPlayer(index);
 	}
 
-    @SuppressWarnings("deprecation")
+    /** 
+	 * @param deal
+	 * @return RespondDialog
+	 */
+	@SuppressWarnings("deprecation")
 	public RespondDialog openRespondDialog(TradeDeal deal) {
         GUIRespondDialog dialog = new GUIRespondDialog();
         dialog.setDeal(deal);
@@ -130,13 +168,20 @@ public class MainWindow extends JFrame implements MonopolyGUI{
         return dialog;
     }
 
-    @SuppressWarnings("deprecation")
+    /** 
+	 * @return TradeDialog
+	 */
+	@SuppressWarnings("deprecation")
 	public TradeDialog openTradeDialog() {
         GUITradeDialog dialog = new GUITradeDialog(this);
         dialog.show();
         return dialog;
     }
 	
+	/** 
+	 * @param index
+	 * @return GUICell
+	 */
 	private GUICell queryCell(int index) {
 		Cell cell = GameMaster.instance().getGameBoard().getCell(index);
 		for(int x = 0; x < guiCells.size(); x++) {
@@ -146,40 +191,65 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 		return null;
 	}
 
-    public void setBuyHouseEnabled(boolean b) {
+    /** 
+	 * @param b
+	 */
+	public void setBuyHouseEnabled(boolean b) {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         playerPanels[currentPlayerIndex].setBuyHouseEnabled(b);
     }
 
-    public void setDrawCardEnabled(boolean b) {
+    /** 
+	 * @param b
+	 */
+	public void setDrawCardEnabled(boolean b) {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         playerPanels[currentPlayerIndex].setDrawCardEnabled(b);
     }
 
-    public void setEndTurnEnabled(boolean enabled) {
+    /** 
+	 * @param enabled
+	 */
+	public void setEndTurnEnabled(boolean enabled) {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         playerPanels[currentPlayerIndex].setEndTurnEnabled(enabled);
     }
 
-    public void setGetOutOfJailEnabled(boolean b) {
+    /** 
+	 * @param b
+	 */
+	public void setGetOutOfJailEnabled(boolean b) {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         playerPanels[currentPlayerIndex].setGetOutOfJailEnabled(b);
     }
 
-    public void setPurchasePropertyEnabled(boolean enabled) {
+    /** 
+	 * @param enabled
+	 */
+	public void setPurchasePropertyEnabled(boolean enabled) {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         playerPanels[currentPlayerIndex].setPurchasePropertyEnabled(enabled);
     }
 
-    public void setRollDiceEnabled(boolean b) {
+    /** 
+	 * @param b
+	 */
+	public void setRollDiceEnabled(boolean b) {
         int currentPlayerIndex = GameMaster.instance().getCurrentPlayerIndex();
         playerPanels[currentPlayerIndex].setRollDiceEnabled(b);
     }
 
-    public void setTradeEnabled(int index, boolean b) {
+    /** 
+	 * @param index
+	 * @param b
+	 */
+	public void setTradeEnabled(int index, boolean b) {
         playerPanels[index].setTradeEnabled(b);
     }
 	
+	/** 
+	 * @param board
+	 */
 	public void setupGameBoard(GameBoard board) {
 		Dimension dimension = GameBoardUtil.calculateDimension(board.getCellNumber());
 		northPanel.setLayout(new GridLayout(1, dimension.width + 2));
@@ -193,16 +263,25 @@ public class MainWindow extends JFrame implements MonopolyGUI{
 		buildPlayerPanels();
 	}
 
-    @SuppressWarnings("deprecation")
+    /** 
+	 * @param currentPlayer
+	 */
+	@SuppressWarnings("deprecation")
 	public void showBuyHouseDialog(Player currentPlayer) {
         BuyHouseDialog dialog = new BuyHouseDialog(currentPlayer);
         dialog.show();
     }
 
-    public void showMessage(String msg) {
+    /** 
+	 * @param msg
+	 */
+	public void showMessage(String msg) {
 		JOptionPane.showMessageDialog(this, msg);
     }
 
+	/** 
+	 * @return int
+	 */
 	public int showUtilDiceRoll() {
 		return UtilDiceRoll.showDialog();
 	}

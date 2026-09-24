@@ -11,6 +11,9 @@ public class CardCell extends Cell {
     public void playAction() {
     }
     
+    /** 
+     * @return int
+     */
     public int getType() {
         return type;
     }

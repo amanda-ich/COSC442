@@ -38,6 +38,9 @@ public class BuyHouseDialog extends JDialog {
 		this.pack();
 	}
 
+	/** 
+	 * @return JButton
+	 */
 	private JButton buildCancelButton() {
 		JButton btn = new JButton("Cancel");
 		btn.addActionListener(new ActionListener(){
@@ -48,11 +51,17 @@ public class BuyHouseDialog extends JDialog {
 		return btn;
 	}
 
+	/** 
+	 * @return JComboBox<?>
+	 */
 	private JComboBox<?> buildMonopolyComboBox() {
 		cboMonopoly = new JComboBox<Object>(player.getMonopolies());
 		return cboMonopoly;
 	}
 	
+	/** 
+	 * @return JComboBox<?>
+	 */
 	private JComboBox<?> buildNumberComboBox() {
 		cboNumber = new JComboBox<Object>(new Integer[]{
 				new Integer(1),
@@ -63,6 +72,9 @@ public class BuyHouseDialog extends JDialog {
 		return cboNumber;
 	}
 
+	/** 
+	 * @return JButton
+	 */
 	private JButton buildOKButton() {
 		JButton btn = new JButton("OK");
 		btn.addActionListener(new ActionListener(){

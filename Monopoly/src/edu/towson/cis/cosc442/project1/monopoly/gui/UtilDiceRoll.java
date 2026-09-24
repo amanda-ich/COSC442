@@ -19,6 +19,9 @@ public class UtilDiceRoll extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/** 
+	 * @return int
+	 */
 	@SuppressWarnings("deprecation")
 	public static int showDialog() {
 		UtilDiceRoll dialog = new UtilDiceRoll();

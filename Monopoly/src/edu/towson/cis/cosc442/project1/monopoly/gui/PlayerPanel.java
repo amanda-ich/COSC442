@@ -152,58 +152,100 @@ public class PlayerPanel extends JPanel {
         txtProperty.setText(buf.toString());
     }
     
+    /** 
+     * @return boolean
+     */
     public boolean isBuyHouseButtonEnabled() {
         return btnBuyHouse.isEnabled();
     }
 
+    /** 
+     * @return boolean
+     */
     public boolean isDrawCardButtonEnabled() {
         return btnDrawCard.isEnabled();
     }
 
+    /** 
+     * @return boolean
+     */
     public boolean isEndTurnButtonEnabled() {
         return btnEndTurn.isEnabled();
     }
     
+    /** 
+     * @return boolean
+     */
     public boolean isGetOutOfJailButtonEnabled() {
         return btnGetOutOfJail.isEnabled();
     }
     
+    /** 
+     * @return boolean
+     */
     public boolean isPurchasePropertyButtonEnabled() {
         return btnPurchaseProperty.isEnabled();
     }
     
+    /** 
+     * @return boolean
+     */
     public boolean isRollDiceButtonEnabled() {
         return btnRollDice.isEnabled();
     }
 
+    /** 
+     * @return boolean
+     */
     public boolean isTradeButtonEnabled() {
         return btnTrade.isEnabled();
     }
 
+    /** 
+     * @param b
+     */
     public void setBuyHouseEnabled(boolean b) {
         btnBuyHouse.setEnabled(b);
     }
 
+    /** 
+     * @param b
+     */
     public void setDrawCardEnabled(boolean b) {
         btnDrawCard.setEnabled(b);
     }
 
+    /** 
+     * @param enabled
+     */
     public void setEndTurnEnabled(boolean enabled) {
         btnEndTurn.setEnabled(enabled);
     }
 
+    /** 
+     * @param b
+     */
     public void setGetOutOfJailEnabled(boolean b) {
         btnGetOutOfJail.setEnabled(b);
     }
 
+    /** 
+     * @param enabled
+     */
     public void setPurchasePropertyEnabled(boolean enabled) {
         btnPurchaseProperty.setEnabled(enabled);
     }
 
+    /** 
+     * @param enabled
+     */
     public void setRollDiceEnabled(boolean enabled) {
         btnRollDice.setEnabled(enabled);
     }
 
+    /** 
+     * @param b
+     */
     public void setTradeEnabled(boolean b) {
         btnTrade.setEnabled(b);
     }

@@ -3,7 +3,7 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 public class GameBoard14 extends GameBoard {
 
-	// Task 11 - turned str literals to constants (maintainence)
+	// Task 12 - turned str literals to constants (maintainence)
 		private static final String BLUE = "blue";
 		private static final String GREEN = "green";
 		private static final String RED = "red";

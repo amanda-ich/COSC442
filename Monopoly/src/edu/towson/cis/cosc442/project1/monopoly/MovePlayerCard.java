@@ -16,7 +16,7 @@ public class MovePlayerCard extends Card {
         Cell currentPosition = currentPlayer.getPosition();
         int newCell = GameMaster.instance().getGameBoard().queryCellIndex(destination);
         int currentCell = GameMaster.instance().getGameBoard().queryCellIndex(currentPosition.getName());
-        int diceValue = newCell - currentCell; //Task 11 - redefined diceValue, removed the else if statement (CCM:3 -> CCM:2)
+        int diceValue = newCell - currentCell; //Task 12 - redefined diceValue, removed the else if statement (CCM:3 -> CCM:2)
         if(currentCell > newCell) {
             diceValue += (GameMaster.instance().getGameBoard().getCellNumber());
         }

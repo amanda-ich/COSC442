@@ -2,6 +2,9 @@ package edu.towson.cis.cosc442.project1.monopoly;
 
 public class MockTradeDialog implements TradeDialog {
 
+    /** 
+     * @return TradeDeal
+     */
     public TradeDeal getTradeDeal() {
         TradeDeal deal = new TradeDeal();
         deal.setAmount(200);

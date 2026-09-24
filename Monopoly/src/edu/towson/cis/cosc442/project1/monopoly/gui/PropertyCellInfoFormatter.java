@@ -5,6 +5,10 @@ import edu.towson.cis.cosc442.project1.monopoly.Player;
 import edu.towson.cis.cosc442.project1.monopoly.PropertyCell;
 
 public class PropertyCellInfoFormatter implements CellInfoFormatter {
+    /** 
+     * @param cell
+     * @return String
+     */
     public String format(Cell cell) {
         PropertyCell c = (PropertyCell)cell;
         StringBuffer buf = new StringBuffer();

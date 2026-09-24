@@ -8,6 +8,9 @@ public class GameboardTest extends TestCase {
 	Cell cell;
 	GameBoard gameBoard;
 	
+	/** 
+	 * @throws Exception
+	 */
 	protected void setUp() throws Exception {
 		gameBoard = new GameBoard();
 		cell = new PropertyCell();

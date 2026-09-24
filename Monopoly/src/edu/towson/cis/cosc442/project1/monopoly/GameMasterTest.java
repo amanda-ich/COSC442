@@ -8,6 +8,9 @@ public class GameMasterTest extends TestCase {
 
 	GameMaster gameMaster;
 	
+	/** 
+	 * @throws Exception
+	 */
 	protected void setUp() throws Exception {
 		gameMaster = GameMaster.instance();
 		gameMaster.setGameBoard(new GameBoardFull());
